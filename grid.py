@@ -32,15 +32,15 @@ class Grid:
     
     def draw(self, screen, ):
         for row in range(self.num_rows):
-            for column in range(self.num_rows):
+            for column in range(self.num_cols):
                 cell_value = self.grid[row][column]
 
-                x = column * self.cell_size
-                y = row * self.cell_size
+                x = column * self.cell_size + 1 
+                y = row * self.cell_size + 1
 
-                w = self.cell_size
-                h = self.cell_size
+                w = self.cell_size - 1
+                h = self.cell_size - 1
 
                 cell_rect = pygame.Rect(x, y, w, h)
 
-                pygame.draw(screen, self.colors[cell_value], cell_rect)
+                pygame.draw.rect(screen, self.colors[cell_value], cell_rect)
